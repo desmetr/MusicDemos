@@ -7,14 +7,16 @@ import net.beadsproject.beads.ugens.SamplePlayer;
 
 public class SampleDemo 
 {
+	private AudioContext ac;
+	
+	public AudioContext getAc() {	return ac;	}
+
 	public SampleDemo() 
 	{
 	}
 
 	public void play() 
 	{
-		AudioContext ac;
-
 		ac = new AudioContext();
 		/*
 		 * Here's how to play back a sample.

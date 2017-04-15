@@ -14,14 +14,16 @@ import net.beadsproject.beads.ugens.WavePlayer;
 
 public class MusicDemo 
 {
+	private AudioContext ac;
+	
+	public AudioContext getAc() {	return ac;	}
+
 	public MusicDemo()
 	{	
 	}
 
 	public void play() 
 	{
-		final AudioContext ac;
-
 		ac = new AudioContext();
 		/*
 		 * In this example a Clock is used to trigger events. We do this by
