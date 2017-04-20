@@ -3,26 +3,26 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/beads-io.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/beads.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/jarjar-1.0.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/JRI.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/mp3spi1.9.4.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/org-jaudiolibs-audioservers-jack.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/org-jaudiolibs-audioservers-javasound.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/org-jaudiolibs-audioservers.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/org-jaudiolibs-jnajack.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/tools.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/tritonus_aos-0.3.6.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/tritonus_share.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/jaxen-1.1.6.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/jdom-2.0.5.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/jna.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/JRIEngine.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/REngine.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/slf4j-api-1.7.1.jar"/>
-	<classpathentry kind="lib" path="/home/rafael/Dropbox/MasterInformatica/EersteJaar/Onderzoeksproject1/MusicDemos/lib/slf4j-log4j12-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/beads-io.jar"/>
+	<classpathentry kind="lib" path="lib/beads.jar"/>
+	<classpathentry kind="lib" path="lib/jarjar-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jaxen-1.1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-2.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jna.jar"/>
+	<classpathentry kind="lib" path="lib/JRI.jar"/>
+	<classpathentry kind="lib" path="lib/JRIEngine.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/mp3spi1.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/org-jaudiolibs-audioservers-jack.jar"/>
+	<classpathentry kind="lib" path="lib/org-jaudiolibs-audioservers-javasound.jar"/>
+	<classpathentry kind="lib" path="lib/org-jaudiolibs-audioservers.jar"/>
+	<classpathentry kind="lib" path="lib/org-jaudiolibs-jnajack.jar"/>
+	<classpathentry kind="lib" path="lib/REngine.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-log4j12-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/tools.jar"/>
+	<classpathentry kind="lib" path="lib/tritonus_aos-0.3.6.jar"/>
+	<classpathentry kind="lib" path="lib/tritonus_share.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
