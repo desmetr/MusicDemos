@@ -1,19 +1,19 @@
 package application;
 
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class MusicDemosView extends GridPane
+public class MusicDemosView extends BorderPane
 {
 	private Button majorChordButton;
 	private Button minorChordButton;
@@ -37,31 +37,35 @@ public class MusicDemosView extends GridPane
 	private Button wolframButton3_2;
 	private Button wolframButton3_3;
 	
-	private Button comp1Button;
-	private Button comp2Button;
-	private Button comp3Button;
+	private Button compButton1;
+	private Button compButton2;
+	private Button compButton3;
 
+	private Button gaButton1;
+	private Button gaButton2;
+	private Button gaButton3;
+
+	private HBox topHBox;
+	private HBox centerHBox;
+	
 	public MusicDemosView() 
 	{
 		super();
+		topHBox = new HBox();
+		centerHBox = new HBox();
 		
 		GridPane chordsCell = initialiseChordsCell();
 		GridPane chordProgressionsCell = initialiseChordProgressionCell();
 		GridPane wavesCell = initialiseWavesCell();
+		topHBox.getChildren().addAll(chordsCell, chordProgressionsCell, wavesCell);
+		setTop(topHBox);
+		
 		GridPane beadsCell = initialiseBeadsCell();
 		GridPane wolframCell = initialiseWolframCell();
-//		VBox gaCell = initialiseGeneticsAlgorithmCell();
 		GridPane computoserCell = initialiseComputoserCell();
-		
-		GridPane.setConstraints(chordsCell, 0, 0); // column = 0, row = 0
-		GridPane.setConstraints(chordProgressionsCell, 1, 0);
-		GridPane.setConstraints(wavesCell, 0, 1);
-		GridPane.setConstraints(beadsCell, 1, 1);
-		GridPane.setConstraints(wolframCell, 0, 2);
-//		GridPane.setConstraints(gaCell, 0, 1);
-		GridPane.setConstraints(computoserCell, 1, 2);
-		
-		getChildren().addAll(chordsCell, chordProgressionsCell, wavesCell, beadsCell, wolframCell, computoserCell);
+		GridPane gaCell = initialiseGeneticsAlgorithmCell();
+		centerHBox.getChildren().addAll(beadsCell, wolframCell, computoserCell, gaCell);
+		setCenter(centerHBox);
 	}
 	
 	public Button getBeadsMusicDemoButton() 	{	return beadsMusicDemoButton;	}
@@ -81,14 +85,19 @@ public class MusicDemosView extends GridPane
 	public Button getTriangleWaveButton() 		{	return triangleWaveButton;		}
 	public Button getBluesFormButton() 			{	return bluesFormButton;			}
 	public Button getI_II_V_I_Button() 			{	return I_II_V_I_Button;			}
-	public Button getComp1Button() 				{	return comp1Button;				}
-	public Button getComp2Button() 				{	return comp2Button;				}
-	public Button getComp3Button() 				{	return comp3Button;				}
+	public Button getCompButton1() 				{	return compButton1;				}
+	public Button getCompButton2() 				{	return compButton2;				}
+	public Button getCompButton3() 				{	return compButton3;				}
+	public Button getGAButton1() 				{	return gaButton1;				}
+	public Button getGAButton2() 				{	return gaButton2;				}
+	public Button getGAButton3() 				{	return gaButton3;				}
 
 	private final double FONTSIZE = 16;
 	private final double UPPERHEIGHT = 270;
 	private final double MIDDLEHEIGHT = 300;
 	private final double LOWERHEIGHT = 430;
+	private final double TOPWIDTH = 440;
+	private final double CENTERWIDTH = 330;
 	
 	private GridPane initialiseChordsCell()
 	{
@@ -104,6 +113,7 @@ public class MusicDemosView extends GridPane
 		majorChordButton.setFont(Font.font("Verdana", FONTSIZE));
 		majorChordButton.setTextFill(Color.IVORY);
 		majorChordButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		majorChordButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(majorChordButton, 0, 1);
 		GridPane.setHalignment(majorChordButton, HPos.CENTER);
 		
@@ -111,6 +121,7 @@ public class MusicDemosView extends GridPane
 		minorChordButton.setFont(Font.font("Verdana", FONTSIZE));
 		minorChordButton.setTextFill(Color.IVORY);
 		minorChordButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		minorChordButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(minorChordButton, 0, 2);
 		GridPane.setHalignment(minorChordButton, HPos.CENTER);
 		
@@ -118,12 +129,13 @@ public class MusicDemosView extends GridPane
 		diminishedChordButton.setFont(Font.font("Verdana", FONTSIZE));
 		diminishedChordButton.setTextFill(Color.IVORY);
 		diminishedChordButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		diminishedChordButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(diminishedChordButton, 0, 3);
 		GridPane.setHalignment(diminishedChordButton, HPos.CENTER);
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(UPPERHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(TOPWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -151,6 +163,7 @@ public class MusicDemosView extends GridPane
 		bluesFormButton.setFont(Font.font("Verdana", FONTSIZE));
 		bluesFormButton.setTextFill(Color.IVORY);
 		bluesFormButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		bluesFormButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(bluesFormButton, 0, 1);
 		GridPane.setHalignment(bluesFormButton, HPos.CENTER);
 		
@@ -158,6 +171,7 @@ public class MusicDemosView extends GridPane
 		I_II_V_I_Button.setFont(Font.font("Verdana", FONTSIZE));
 		I_II_V_I_Button.setTextFill(Color.IVORY);
 		I_II_V_I_Button.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		I_II_V_I_Button.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(I_II_V_I_Button, 0, 2);
 		GridPane.setHalignment(I_II_V_I_Button, HPos.CENTER);
 		
@@ -167,7 +181,7 @@ public class MusicDemosView extends GridPane
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(UPPERHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(TOPWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -195,6 +209,7 @@ public class MusicDemosView extends GridPane
 		sineWaveButton.setFont(Font.font("Verdana", FONTSIZE));
 		sineWaveButton.setTextFill(Color.IVORY);
 		sineWaveButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		sineWaveButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(sineWaveButton, 0, 1);
 		GridPane.setHalignment(sineWaveButton, HPos.CENTER);
 		
@@ -202,6 +217,7 @@ public class MusicDemosView extends GridPane
 		sawWaveButton.setFont(Font.font("Verdana", FONTSIZE));
 		sawWaveButton.setTextFill(Color.IVORY);
 		sawWaveButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		sawWaveButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(sawWaveButton, 0, 2);
 		GridPane.setHalignment(sawWaveButton, HPos.CENTER);
 		
@@ -209,6 +225,7 @@ public class MusicDemosView extends GridPane
 		squareWaveButton.setFont(Font.font("Verdana", FONTSIZE));
 		squareWaveButton.setTextFill(Color.IVORY);
 		squareWaveButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		squareWaveButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(squareWaveButton, 0, 3);
 		GridPane.setHalignment(squareWaveButton, HPos.CENTER);
 		
@@ -216,12 +233,13 @@ public class MusicDemosView extends GridPane
 		triangleWaveButton.setFont(Font.font("Verdana", FONTSIZE));
 		triangleWaveButton.setTextFill(Color.IVORY);
 		triangleWaveButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		triangleWaveButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(triangleWaveButton, 0, 4);
 		GridPane.setHalignment(triangleWaveButton, HPos.CENTER);
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(MIDDLEHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(TOPWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -249,6 +267,7 @@ public class MusicDemosView extends GridPane
 		beadsMusicDemoButton.setFont(Font.font("Verdana", FONTSIZE));
 		beadsMusicDemoButton.setTextFill(Color.IVORY);
 		beadsMusicDemoButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		beadsMusicDemoButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(beadsMusicDemoButton, 0, 1);
 		GridPane.setHalignment(beadsMusicDemoButton, HPos.CENTER);
 		
@@ -256,6 +275,7 @@ public class MusicDemosView extends GridPane
 		beadsSampleDemoButton.setFont(Font.font("Verdana", FONTSIZE));
 		beadsSampleDemoButton.setTextFill(Color.IVORY);
 		beadsSampleDemoButton.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		beadsSampleDemoButton.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(beadsSampleDemoButton, 0, 2);
 		GridPane.setHalignment(beadsSampleDemoButton, HPos.CENTER);
 		
@@ -269,7 +289,7 @@ public class MusicDemosView extends GridPane
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(MIDDLEHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(CENTERWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -294,26 +314,29 @@ public class MusicDemosView extends GridPane
 		GridPane.setColumnSpan(wolframLabel, 2);
 		GridPane.setHalignment(wolframLabel, HPos.CENTER);
 		
-		wolframButton1 = new Button("Wolfram Demo 1");
+		wolframButton1 = new Button("Wolfram 1");
 		wolframButton1.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton1.setTextFill(Color.IVORY);
 		wolframButton1.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton1.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(wolframButton1, 0, 1);
 		GridPane.setColumnSpan(wolframButton1, 2);
 		GridPane.setHalignment(wolframButton1, HPos.CENTER);
 		
-		wolframButton2 = new Button("Wolfram Demo 2");
+		wolframButton2 = new Button("Wolfram 2");
 		wolframButton2.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton2.setTextFill(Color.IVORY);
 		wolframButton2.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton2.setStyle("-fx-cursor: hand;");
 		GridPane.setConstraints(wolframButton2, 0, 2);
 		GridPane.setColumnSpan(wolframButton2, 2);
 		GridPane.setHalignment(wolframButton2, HPos.CENTER);
 		
-		wolframButton3 = new Button("Wolfram Demo 3");
+		wolframButton3 = new Button("Wolfram 3");
 		wolframButton3.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton3.setTextFill(Color.IVORY);
 		wolframButton3.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton3.setStyle("-fx-cursor: hand;");
 		wolframButton3.setPrefWidth(170);
 		GridPane.setConstraints(wolframButton3, 0, 3);
 		GridPane.setHalignment(wolframButton3, HPos.CENTER);
@@ -322,6 +345,7 @@ public class MusicDemosView extends GridPane
 		wolframButton3_1.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton3_1.setTextFill(Color.IVORY);
 		wolframButton3_1.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton3_1.setStyle("-fx-cursor: hand;");
 		wolframButton3_1.setPrefWidth(170);
 		wolframButton3_1.setMinWidth(170);
 		wolframButton3_1.setMaxWidth(170);
@@ -332,6 +356,7 @@ public class MusicDemosView extends GridPane
 		wolframButton3_2.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton3_2.setTextFill(Color.IVORY);
 		wolframButton3_2.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton3_2.setStyle("-fx-cursor: hand;");
 		wolframButton3_2.setPrefWidth(170);
 		wolframButton3_2.setMinWidth(170);
 		wolframButton3_2.setMaxWidth(170);GridPane.setConstraints(wolframButton3_2, 1, 4);
@@ -341,6 +366,7 @@ public class MusicDemosView extends GridPane
 		wolframButton3_3.setFont(Font.font("Verdana", FONTSIZE));
 		wolframButton3_3.setTextFill(Color.IVORY);
 		wolframButton3_3.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		wolframButton3_3.setStyle("-fx-cursor: hand;");
 		wolframButton3_3.setPrefWidth(170);
 		wolframButton3_3.setMinWidth(170);
 		wolframButton3_3.setMaxWidth(170);GridPane.setConstraints(wolframButton3_3, 1, 5);
@@ -348,7 +374,7 @@ public class MusicDemosView extends GridPane
 				
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(LOWERHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(CENTERWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -369,19 +395,54 @@ public class MusicDemosView extends GridPane
 		
 		Label gaLabel = new Label("Genetic Algorithm");
 		gaLabel.setTextFill(Color.IVORY);
-		gaLabel.setFont(Font.font("Verdana", 20));
+		gaLabel.setFont(Font.font("Verdana", FONTSIZE + 4));
+		GridPane.setConstraints(gaLabel, 0, 0);
+		GridPane.setHalignment(gaLabel, HPos.CENTER);
+		
+		gaButton1 = new Button("Individual 1");
+		gaButton1.setFont(Font.font("Verdana", FONTSIZE));
+		gaButton1.setTextFill(Color.IVORY);
+		gaButton1.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		gaButton1.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(gaButton1, 0, 1);
+		GridPane.setHalignment(gaButton1, HPos.CENTER);
+		
+		gaButton2 = new Button("Individual 2");
+		gaButton2.setFont(Font.font("Verdana", FONTSIZE));
+		gaButton2.setTextFill(Color.IVORY);
+		gaButton2.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		gaButton2.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(gaButton2, 0, 2);
+		GridPane.setHalignment(gaButton2, HPos.CENTER);
+		
+		gaButton3 = new Button("Individual 3");
+		gaButton3.setFont(Font.font("Verdana", FONTSIZE));
+		gaButton3.setTextFill(Color.IVORY);
+		gaButton3.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		gaButton3.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(gaButton3, 0, 3);
+		GridPane.setHalignment(gaButton3, HPos.CENTER);
+
+		Button dummy1 = new Button();
+		dummy1.setVisible(false);
+		GridPane.setConstraints(dummy1, 0, 4);
+		
+		Button dummy2 = new Button();
+		dummy2.setVisible(false);
+		GridPane.setConstraints(dummy2, 0, 5);
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
-		result.setPrefHeight(333.0);
-		result.setPrefWidth(400.0);
+		result.setPrefHeight(LOWERHEIGHT);
+		result.setPrefWidth(CENTERWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
                         " linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%)," +
                         " linear-gradient(#20262b, #191d22)," +
                         " radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));");
+		result.setVgap(20);
 		
-		result.getChildren().addAll(gaLabel);
+		result.getChildren().addAll(gaLabel, gaButton1, gaButton2, gaButton3, dummy1, dummy2);
 		
 		return result;
 	}
@@ -396,26 +457,29 @@ public class MusicDemosView extends GridPane
 		GridPane.setConstraints(computoserLabel, 0, 0);
 		GridPane.setHalignment(computoserLabel, HPos.CENTER);
 		
-		comp1Button = new Button("Computoser 1");
-		comp1Button.setFont(Font.font("Verdana", FONTSIZE));
-		comp1Button.setTextFill(Color.IVORY);
-		comp1Button.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
-		GridPane.setConstraints(comp1Button, 0, 1);
-		GridPane.setHalignment(comp1Button, HPos.CENTER);
+		compButton1 = new Button("Computoser 1");
+		compButton1.setFont(Font.font("Verdana", FONTSIZE));
+		compButton1.setTextFill(Color.IVORY);
+		compButton1.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		compButton1.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(compButton1, 0, 1);
+		GridPane.setHalignment(compButton1, HPos.CENTER);
 		
-		comp2Button = new Button("Computoser 2");
-		comp2Button.setFont(Font.font("Verdana", FONTSIZE));
-		comp2Button.setTextFill(Color.IVORY);
-		comp2Button.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
-		GridPane.setConstraints(comp2Button, 0, 2);
-		GridPane.setHalignment(comp2Button, HPos.CENTER);
+		compButton2 = new Button("Computoser 2");
+		compButton2.setFont(Font.font("Verdana", FONTSIZE));
+		compButton2.setTextFill(Color.IVORY);
+		compButton2.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		compButton2.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(compButton2, 0, 2);
+		GridPane.setHalignment(compButton2, HPos.CENTER);
 		
-		comp3Button = new Button("Computoser 3");
-		comp3Button.setFont(Font.font("Verdana", FONTSIZE));
-		comp3Button.setTextFill(Color.IVORY);
-		comp3Button.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
-		GridPane.setConstraints(comp3Button, 0, 3);
-		GridPane.setHalignment(comp3Button, HPos.CENTER);
+		compButton3 = new Button("Computoser 3");
+		compButton3.setFont(Font.font("Verdana", FONTSIZE));
+		compButton3.setTextFill(Color.IVORY);
+		compButton3.setBackground(new Background(new BackgroundFill(Color.DARKGOLDENROD, new CornerRadii(5.0), null)));
+		compButton3.setStyle("-fx-cursor: hand;");
+		GridPane.setConstraints(compButton3, 0, 3);
+		GridPane.setHalignment(compButton3, HPos.CENTER);
 
 		Button dummy1 = new Button();
 		dummy1.setVisible(false);
@@ -427,7 +491,7 @@ public class MusicDemosView extends GridPane
 		
 		result.setBackground(new Background(new BackgroundFill(Color.DARKSLATEGRAY, null, null)));
 		result.setPrefHeight(LOWERHEIGHT);
-		result.setPrefWidth(400.0);
+		result.setPrefWidth(CENTERWIDTH);
 		result.setAlignment(Pos.CENTER);
 		result.setStyle("-fx-background-color:" +
                         " #090a0c," +
@@ -436,7 +500,7 @@ public class MusicDemosView extends GridPane
                         " radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));");
 		result.setVgap(20);
 		
-		result.getChildren().addAll(computoserLabel, comp1Button, comp2Button, comp3Button, dummy1, dummy2);
+		result.getChildren().addAll(computoserLabel, compButton1, compButton2, compButton3, dummy1, dummy2);
 		
 		return result;
 	}

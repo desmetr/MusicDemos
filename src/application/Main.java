@@ -14,7 +14,7 @@ public class Main extends Application
 		MusicDemosView musicDemosView = new MusicDemosView();
 		new MusicDemosPresenter(musicDemosView);
 		
-		primaryStage.setScene(new Scene(musicDemosView, 800, 1000));
+		primaryStage.setScene(new Scene(musicDemosView, 1320, 600));
 		musicDemosView.setVisible(true);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Music Generation Demos");
